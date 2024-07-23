@@ -2,24 +2,33 @@
 #define SEQLIST_H
 
 #include <stdio.h>
-#define MAXTAM 1000
+#define MAXTAM 100000
 
-typedef struct {
-    int value;
-}ItemType;
 
 typedef struct{
 
-    ItemType data[MAXTAM];
-    int first, last;
+  int *data;
+  int currentSize;
+  int maxSize;
+  
 
-}List;
+}SeqList;
 
+SeqList* createSeqList();
 
-List* createList(){
-    List* newList = malloc(sizeof(List));
-    return newList;
-}
+int emptycheck(SeqList *s);
+
+int fulcheck(SeqList *s);
+
+int size(SeqList *s);
+
+int getElement(SeqList *s,int pos);
+
+int getPos(SeqList *s, int data);
+
+int insertElement(SeqList* s,int pos, int data);
+
+int remove(SeqList* s,int pos);
 
 
 
