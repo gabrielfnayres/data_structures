@@ -52,7 +52,7 @@ int getPos(SeqList* s, int data){
 
 int insertElement(SeqList* s,int pos, int data){
 
-    if(pos >= s->maxSize || pos < 0) return 0;
+    if(pos >= s->maxSize || pos < 1) return 0;
 
     for(int i = pos - 1; i >= 0; i--){
 
@@ -66,16 +66,16 @@ int insertElement(SeqList* s,int pos, int data){
 
 int remove(SeqList* s, int pos){
 
-    if(emptycheck(s) || pos < 0 || pos >= MAXTAM) return 0;
+    if(emptycheck(s) || pos < 1 || pos >= MAXTAM) return 0;
 
-
+    s->data[pos] = s->data[pos - 1];
     for(int i = pos - 1; i >= 0; i++){
 
         s->data[i] = s->data[i + 1];
     }
 
-    s->data[pos + 1] = s->data[pos];
-    s->currentSize++;
+    
+    s->currentSize--;
     return 1;
 }
 
