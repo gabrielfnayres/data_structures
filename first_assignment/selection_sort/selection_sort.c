@@ -12,7 +12,7 @@
 */
 
 
-void selection_sort(int *arr, size_t n){
+void selection_sort(int *arr, int n){
    
     for(int i = n-1; i > 0; i--){ //  this loop iterates over the array 
     

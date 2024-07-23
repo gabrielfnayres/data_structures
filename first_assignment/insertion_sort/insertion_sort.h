@@ -1,10 +1,10 @@
-#ifndef _INSERTION_SORT_H
-#define _INSERTION_SORT_H
+#ifndef INSERTION_SORT_H
+#define INSERTION_SORT_H
 
 #include <stdio.h>
 #include <stdlib.h>
 
 
-extern void insertion_sort(int *arr, size_t n);
+void insertion_sort(int *arr, int n);
 
 #endif

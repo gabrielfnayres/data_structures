@@ -4,14 +4,14 @@
 #include <string.h>
 #include <limits.h>
 
-#include "selection_sort/selection_sort.h"
+#define MAX_numbers1 100000
+
 #include "insertion_sort/insertion_sort.h"
+#include "selection_sort/selection_sort.h"
 
 
-#define MAX_NUMBERS 1000
-
-void printArray(int *arr, size_t n){
-    for(int i = 0; i < n - 2; i++){
+void printArray(int *arr, int n){
+    for(int i = 0; i < n -1; i++){
         printf("%d -> ", arr[i]);
     }
     printf("%d\n", arr[n - 1]);
@@ -20,44 +20,59 @@ void printArray(int *arr, size_t n){
 int main(int argc, char* argv[]){
 
     FILE *file;
-    int numbers[MAX_NUMBERS];
+
+    clock_t start1, end1;
+    clock_t start2, end2;
+
+    int *numbers1 = (int*)malloc(MAX_numbers1 * sizeof(int));
+    
+
     int count = 0;
 
     
-
-    file = fopen(argv[2], "r");
-
+    file = fopen(argv[1], "r");
+    
     if (file == NULL) {
         fprintf(stderr, "Erro ao abrir o arquivo.\n");
         return 1;
     }
 
-   
-    while (count < MAX_NUMBERS && fscanf(file, "%d", &numbers[count]) == 1) {
-        count++;
-    }
-    int count2 = 0;
-    int arr[count];
-
-    while(count2 < count){
-        arr[count2] = numbers[count2];
-        count2++;
-    }
     
+    while (count <  MAX_numbers1 && fscanf(file, "%d", &numbers1[count]) == 1) {
+
+      count++;
+    }
+        
     fclose(file);
+    int *numbers2 =  (int*)malloc(count * sizeof(int));
 
-    if(strcmp(argv[1], "selection") == 0){
-        selection_sort(arr, count);
-
-        printArray(arr, count);
-    } else if(strcmp(argv[1], "insertion") == 0){
-        insertion_sort(arr, count);
-
-        printArray(arr, count);
-    } else {
-        fprintf(stderr, "Algoritmo de ordenação inválido.\n");
-        return 1;
+    for(int i = 0; i < count; i++){
+        numbers2[i] = numbers1[i];
     }
 
+    start1 = clock();
+    selection_sort(numbers1, count);
+    end1 = clock();
+
+    printf("SELECTION SORT: \n");
+    printArray(numbers1, count);
+
+    start2 = clock();
+    insertion_sort(numbers2, count);
+    end2 = clock();
+
+    printf("INSERTION SORT: \n");
+    printArray(numbers2, count);
+
+    double resp1 = (double)(end1 - start1)/CLOCKS_PER_SEC;
+    double resp2 = (double)(end2 - start2)/CLOCKS_PER_SEC;
+
+    printf("\n================TIME==================\n");
+
+    printf("selection time: %f\n", resp1);
+    printf("insertion time: %f\n", resp2);
+
+    free(numbers1);
+    free(numbers2);
     return 0;
 }   
