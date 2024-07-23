@@ -2,6 +2,7 @@
     "files.associations": {
         "time.h": "c",
         "insertion_sort.h": "c",
-        "selection_sort.h": "c"
+        "selection_sort.h": "c",
+        "stdlib.h": "c"
     }
 }
