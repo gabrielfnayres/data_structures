@@ -148,6 +148,7 @@ int push_mid(LinkedList *ll, int pos, int data){
 
 
     newNode->content = data;
+    newNode->next = aux->next;
     aux->next = newNode;
     
     ll->size++;
