@@ -10,6 +10,19 @@ DoubleLinkedList* createDll(){
     return dll;
 }
 
+void printDLL(DoubleLinkedList* dll){
+
+    Node* aux = dll->head;
+
+    while(aux != dll->tail){
+        printf("%d -> ", aux->content);
+        aux = aux->next;
+    }
+
+    printf("%d\n", aux->next->content);
+
+}
+
 int empty(DoubleLinkedList* dll){
 
     if(dll->size == 0) return 1;

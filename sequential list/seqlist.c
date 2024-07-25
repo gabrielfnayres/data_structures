@@ -10,6 +10,14 @@ SeqList* createSeqList(){
     return s;
 }
 
+void printSeqList(SeqList* s){
+
+    for(int i = 0; i < s->currentSize - 2; i++){
+        printf("%d -> ", s->data[i]);
+    }
+    printf("%d\n", s->data[s->currentSize - 1]);
+
+}
 
 int emptycheck(SeqList* s){
 

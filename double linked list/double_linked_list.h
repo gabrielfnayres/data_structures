@@ -26,6 +26,8 @@ typedef struct{
 
 DoubleLinkedList* createDll();
 
+void printDLL(DoubleLinkedList* dll);
+
 int empty(DoubleLinkedList* dll);
 
 int full(DoubleLinkedList* dll);

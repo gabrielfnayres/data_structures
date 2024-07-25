@@ -16,6 +16,8 @@ typedef struct{
 
 SeqList* createSeqList();
 
+void printSeqList(SeqList* s);
+
 int emptycheck(SeqList *s);
 
 int fulcheck(SeqList *s);

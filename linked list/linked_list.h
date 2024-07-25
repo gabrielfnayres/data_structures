@@ -22,6 +22,8 @@ typedef struct{
 
 Node* createNode();
 
+void printLL(LinkedList* ll);
+
 void setData(Node* node, int data);
 
 LinkedList* createLinkedList();

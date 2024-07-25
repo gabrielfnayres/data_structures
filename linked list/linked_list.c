@@ -8,6 +8,15 @@ Node* createNode(){
     return node;
 }
 
+void printLL(LinkedList *ll){
+    Node* aux = ll->head;
+
+    while(aux != NULL){
+        printf("%d -> ", aux->content);
+        aux = aux->next;
+    }
+}
+
 void setData(Node *node, int data){
     node->content = data;
 } 
