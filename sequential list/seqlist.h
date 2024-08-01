@@ -2,7 +2,7 @@
 #define SEQLIST_H
 
 #include <stdio.h>
-#define MAXTAM 100000
+#define MAXTAM 10000
 
 
 typedef struct{
@@ -20,7 +20,7 @@ void printSeqList(SeqList* s);
 
 int emptycheck(SeqList *s);
 
-int fulcheck(SeqList *s);
+int fullcheck(SeqList *s);
 
 int size(SeqList *s);
 
@@ -30,10 +30,6 @@ int getPos(SeqList *s, int data);
 
 int insertElement(SeqList* s,int pos, int data);
 
-int remove(SeqList* s,int pos);
-
-
-
-
+int removeData(SeqList* s,int pos);
 
 #endif

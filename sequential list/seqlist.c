@@ -2,21 +2,37 @@
 
 SeqList* createSeqList(){
 
-    SeqList *s;
+    SeqList *s = (SeqList*) malloc(sizeof(SeqList));
+    if(s == NULL){
+        return NULL;
+    }
+    
+    s->data = (int*) malloc(MAXTAM*sizeof(int));
+
+    if(s->data == NULL){
+        free(s);
+        return NULL;
+    }
+
     s->currentSize = 0;
     s->maxSize = MAXTAM;
-    s->data[MAXTAM];
-
     return s;
 }
 
 void printSeqList(SeqList* s){
 
-    for(int i = 0; i < s->currentSize - 2; i++){
-        printf("%d -> ", s->data[i]);
+    if (emptycheck(s) == 1) {
+        printf("List is empty.\n");
+        return;
     }
-    printf("%d\n", s->data[s->currentSize - 1]);
-
+    
+    for (int i = 0; i < s->currentSize; i++) {
+        printf("%d", s->data[i]);
+        if (i < s->currentSize - 1) {
+            printf(" -> ");
+        }
+    }
+    printf("\n");
 }
 
 int emptycheck(SeqList* s){
@@ -35,18 +51,16 @@ int size(SeqList *s){
 }
 
 int getElement(SeqList* s, int pos){
+    int data;
 
-    if(emptycheck(s)){
-        return -1;
-    }
+    if((pos > s->currentSize) || pos <= 0) return -1;
 
-    return s->data[pos - 1];
+    data = s->data[pos - 1];
+    return data;
 }
 
 int getPos(SeqList* s, int data){
-    if(emptycheck(s)){
-        return -1;
-    }
+    
 
     for(int i = 0; i < s->currentSize; i++){
         if(s->data[i] == data){
@@ -59,32 +73,31 @@ int getPos(SeqList* s, int data){
 
 
 int insertElement(SeqList* s,int pos, int data){
+    int ful = fullcheck(s);
+    if((ful == 1) || (pos > s->currentSize + 1) || pos < 1) return 0;
 
-    if(pos >= s->maxSize || pos < 1) return 0;
-
-    for(int i = pos - 1; i >= 0; i--){
+    for(int i = s->currentSize; i >= pos; i--){
 
         s->data[i] = s->data[i - 1];
     }
 
-    s->data[pos - 1] = s->data[pos];
+    s->data[pos - 1] =  data;
     s->currentSize++;
     return 1;
 }
 
-int remove(SeqList* s, int pos){
+int removeData(SeqList* s, int pos){
 
-    if(emptycheck(s) || pos < 1 || pos >= MAXTAM) return 0;
+    int data;
+    if(pos > s->currentSize) return -1;
 
-    s->data[pos] = s->data[pos - 1];
-    for(int i = pos - 1; i >= 0; i++){
+    data = s->data[pos - 1];
+    for(int i = pos -1; i < s->currentSize - 1; i++){
 
         s->data[i] = s->data[i + 1];
     }
-
-    
     s->currentSize--;
-    return 1;
+    return data;
 }
 
 
