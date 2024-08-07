@@ -64,4 +64,4 @@ The `main.c` file provides an example of how to use the linked list functions:
 To compile the code, use the following commands:
 
 ```sh
-gcc -o linked_list main.c linked_list.c
+make
