@@ -3,7 +3,11 @@
 
 
 Node* createNode(){
-    Node* node;
+    Node* node = (Node*) malloc(sizeof(Node));
+    if(node == NULL){
+        perror("failed to create node\n");
+        exit(EXIT_FAILURE);
+    }
     node->next = NULL;
     return node;
 }
@@ -23,7 +27,11 @@ void setData(Node *node, int data){
 
 LinkedList* createLinkedList(){
 
-    LinkedList *ll;
+    LinkedList *ll = (LinkedList*) malloc(sizeof(LinkedList));
+    if(ll == NULL){
+        perror("failed to create ll\n");
+        exit(EXIT_FAILURE);
+    }
     ll->head = NULL;
     ll->size = 0;
     return ll;
@@ -129,14 +137,18 @@ int push_back(LinkedList* ll, int data){
     Node* newNode = createNode();
 
     newNode->content = data;
-    Node* aux = ll->head;
-
-    while(aux != NULL){
-        aux = aux->next;
-    }
-
     newNode->next = NULL;
-    aux->next = newNode;
+    if (ll->head == NULL) {
+        // Se a lista estiver vazia, o novo nó será o cabeçote
+        ll->head = newNode;
+    } else {
+        Node* aux = ll->head;
+        while (aux->next != NULL) {
+            aux = aux->next;
+        }
+        aux->next = newNode;
+    }
+    
     ll->size++;
 
     return 1;
@@ -193,33 +205,30 @@ int insert(LinkedList *ll, int pos, int data){
     return -1;
 }
 
-int removeel(LinkedList *ll, int pos){
-    int verif = empty(ll);
-    int data = -1;
+int removeel(LinkedList *ll, int pos) {
+    if (pos < 1 || pos > ll->size) return -1; 
 
-    if(verif == 1 && pos < 1) return 0;
+    Node* aux = ll->head;
+    Node* pre_aux = NULL;
 
-    Node *aux = ll->head;
-    Node *pre_aux = NULL;
-    int cont = 1;
-
-
-    while(cont  < pos  && aux != NULL){
+    if (pos == 1) {
         
-        pre_aux = aux;
-        aux = aux->next;
-        cont++;
+        ll->head = aux->next;
+    } else {
+        int cont = 1;
+        while (cont < pos) {
+            pre_aux = aux;
+            aux = aux->next;
+            cont++;
+        }
+        if (aux == NULL) return -1; 
+
+        pre_aux->next = aux->next;
     }
 
-    if(aux == NULL) return -1;
-
-    data = aux->content;
-    pre_aux->next = aux->next;
+    int data = aux->content;
+    free(aux);
     ll->size--;
 
-    aux = NULL;
     return data;
 }
-
-
-
