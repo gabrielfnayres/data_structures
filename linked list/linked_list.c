@@ -86,9 +86,15 @@ int getElement(LinkedList *ll, int pos){
 
 int getPos(LinkedList *ll, int data){
 
-    Node *aux = ll->head;
+    Node *aux;
 
     int pos = 1;
+
+    int ch = empty(ll);
+
+    if(ch == 1) return 0;
+
+    aux = ll->head;
 
     while(aux != NULL){
         if(aux->content == data){
@@ -120,19 +126,16 @@ int change_element(LinkedList *ll, int pos, int data){
 
 int push_back(LinkedList* ll, int data){
 
-    int cont = 1;
-    Node* newNode;
+    Node* newNode = createNode();
 
     newNode->content = data;
-    newNode->next = NULL;
-
     Node* aux = ll->head;
-
 
     while(aux != NULL){
         aux = aux->next;
     }
 
+    newNode->next = NULL;
     aux->next = newNode;
     ll->size++;
 
@@ -141,9 +144,9 @@ int push_back(LinkedList* ll, int data){
 
 int push_mid(LinkedList *ll, int pos, int data){
 
-    Node* newNode;
+    Node* newNode = createNode();
+    newNode->content = data;
 
-    
     Node* aux;
     int cont = 1;
 
@@ -155,18 +158,15 @@ int push_mid(LinkedList *ll, int pos, int data){
 
     if(aux == NULL) return 0;
 
-
-    newNode->content = data;
     newNode->next = aux->next;
-    aux->next = newNode;
-    
+    aux->next = newNode;    
     ll->size++;
     return 1;
 }
-
+ 
 int push_front(LinkedList* ll, int data){
 
-    Node* newNode;
+    Node* newNode = createNode();
 
     newNode->content = data;
     newNode->next = ll->head;   
@@ -193,7 +193,7 @@ int insert(LinkedList *ll, int pos, int data){
     return -1;
 }
 
-int remove(LinkedList *ll, int pos){
+int removeel(LinkedList *ll, int pos){
     int verif = empty(ll);
     int data = -1;
 

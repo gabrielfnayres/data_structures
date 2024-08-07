@@ -1,16 +1,18 @@
 #ifndef LINKED_LIST_H
+#define LINKED_LIST_H
 
 #include <stdio.h>
 #include <stdlib.h>
 #define MAXTAM 100000
-#define LINKED_LIST_H
 
-typedef struct{
+typedef struct Node Node;
+
+struct Node{
 
     int content;
     Node* next;
     
-} Node;
+};
 
 typedef struct{
 
@@ -42,7 +44,7 @@ int change_element(LinkedList *ll, int pos, int data);
 
 int insert(LinkedList* ll, int pos, int data);
 
-int remove(LinkedList* ll, int pos);
+int removeel(LinkedList* ll, int pos);
 
 int push_back(LinkedList* ll, int data);
 
