@@ -21,9 +21,11 @@ int empty(Queue* q);
 
 int full(Queue* q);
 
-void enqueue(Queue* q, int data);
+int getFirst(Queue* q);
 
-void dequeue(Queue* q);
+int enqueue(Queue* q, int data);
+
+int dequeue(Queue* q);
 
 int getSize(Queue* q);
 
