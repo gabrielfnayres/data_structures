@@ -15,7 +15,7 @@ Tree search(Tree t, int data){
 
     Tree found;
     if(t == NULL){
-        return NULL;
+        return 0;
     }
 
     if(t->content == data){

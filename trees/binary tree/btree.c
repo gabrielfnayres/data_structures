@@ -20,10 +20,11 @@ Btree search(Btree t, int data){
     if(t->content == data) return t;
 
     if(t->content > data){
-        search(t->left, data);
+        found = search(t->left, data);
     } else {
-        search(t->right, data);
+        found = search(t->right, data);
     }
+    return found;
 }
 
 void show(Btree t){
