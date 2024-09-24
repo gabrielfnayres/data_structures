@@ -5,7 +5,7 @@
 
 using namespace std;
 
-vector<int> visited[10000];
+vector<int> dpdfs;
 
 void loadGraphFromFile(const string& filename, Graph& graph) {
     ifstream file(filename);
@@ -35,7 +35,23 @@ void loadGraphFromFile(const string& filename, Graph& graph) {
     file.close();
 }
 
+void dfs(Graph* graph, int v);
 
+
+void dfs(Graph* graph, int v){
+  dpdfs[v] = 1;
+  for(auto &u : graph->adjacency_list[v]){
+    if(dpdfs[u] == 0){
+      dfs(u);
+    }
+  }
+}
+
+void bfs(Graph* graph);
+
+void bfs(Graph* graph){
+
+}
 
 int main(int argc, char* argv[]) {
     if (argc < 2) {
@@ -46,12 +62,14 @@ int main(int argc, char* argv[]) {
     Graph graph;
 
     loadGraphFromFile(argv[1], graph);
-
     cout << "Adjacency List:" << endl;
     graph.printAdjList();
 
     cout << "\nAdjacency Matrix:" << endl;
     graph.printAdjMatrix();
+    
 
+    int depth = 0;
+    dfs(graph, depth);
     return 0;
 }
