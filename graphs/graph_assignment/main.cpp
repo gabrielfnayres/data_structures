@@ -35,23 +35,6 @@ void loadGraphFromFile(const string& filename, Graph& graph) {
     file.close();
 }
 
-void dfs(Graph* graph, int v);
-
-
-void dfs(Graph* graph, int v){
-  dpdfs[v] = 1;
-  for(auto &u : graph->adjacency_list[v]){
-    if(dpdfs[u] == 0){
-      dfs(u);
-    }
-  }
-}
-
-void bfs(Graph* graph);
-
-void bfs(Graph* graph){
-
-}
 
 int main(int argc, char* argv[]) {
     if (argc < 2) {
@@ -59,17 +42,20 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    Graph graph;
+    Graph *graph = new Graph();
 
-    loadGraphFromFile(argv[1], graph);
+    loadGraphFromFile(argv[1], *graph);
     cout << "Adjacency List:" << endl;
-    graph.printAdjList();
+    graph->printAdjList();
 
     cout << "\nAdjacency Matrix:" << endl;
-    graph.printAdjMatrix();
-    
+    graph->printAdjMatrix();
 
-    int depth = 0;
-    dfs(graph, depth);
+    cout << "\nBread-First Search" << endl;
+    graph->bfs(1, 4);
+    
+    cout << "\nDepth-First Search" << endl;
+    graph->dfs(0);
+
     return 0;
 }

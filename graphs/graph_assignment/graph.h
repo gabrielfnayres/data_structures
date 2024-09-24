@@ -1,7 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <list>
-
+#include <queue>
+#include <algorithm>
+#include <stack>
 class Graph{
     public:
     int max_size;
@@ -20,4 +22,7 @@ class Graph{
     void printAdjList();
 
     void printAdjMatrix();
+    
+    void bfs(int u, int target);
+    void dfs(int u);
 };
