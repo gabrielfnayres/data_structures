@@ -1,0 +1,72 @@
+Arquivo: instancias-numericas/instancias-num/num.100000.1.in
+Tempo de MERGESORT: 0.042170 segundos
+Tempo de QUICKSORT: 0.054756 segundos
+Merge está ordenado: 1
+Quick está ordenado: 1
+----------------------------------------
+Arquivo: instancias-numericas/instancias-num/num.100000.2.in
+Tempo de MERGESORT: 0.025468 segundos
+Tempo de QUICKSORT: 0.050193 segundos
+Merge está ordenado: 1
+Quick está ordenado: 1
+----------------------------------------
+Arquivo: instancias-numericas/instancias-num/num.100000.3.in
+Tempo de MERGESORT: 0.029227 segundos
+Tempo de QUICKSORT: 0.048160 segundos
+Merge está ordenado: 1
+Quick está ordenado: 1
+----------------------------------------
+Arquivo: instancias-numericas/instancias-num/num.100000.4.in
+Tempo de MERGESORT: 0.028857 segundos
+Tempo de QUICKSORT: 0.053228 segundos
+Merge está ordenado: 1
+Quick está ordenado: 1
+----------------------------------------
+Arquivo: instancias-numericas/instancias-num/num.10000.1.in
+Tempo de MERGESORT: 0.001842 segundos
+Tempo de QUICKSORT: 0.001576 segundos
+Merge está ordenado: 1
+Quick está ordenado: 1
+----------------------------------------
+Arquivo: instancias-numericas/instancias-num/num.10000.2.in
+Tempo de MERGESORT: 0.002051 segundos
+Tempo de QUICKSORT: 0.001731 segundos
+Merge está ordenado: 1
+Quick está ordenado: 1
+----------------------------------------
+Arquivo: instancias-numericas/instancias-num/num.10000.3.in
+Tempo de MERGESORT: 0.001958 segundos
+Tempo de QUICKSORT: 0.001696 segundos
+Merge está ordenado: 1
+Quick está ordenado: 1
+----------------------------------------
+Arquivo: instancias-numericas/instancias-num/num.10000.4.in
+Tempo de MERGESORT: 0.001695 segundos
+Tempo de QUICKSORT: 0.001547 segundos
+Merge está ordenado: 1
+Quick está ordenado: 1
+----------------------------------------
+Arquivo: instancias-numericas/instancias-num/num.1000.1.in
+Tempo de MERGESORT: 0.000154 segundos
+Tempo de QUICKSORT: 0.000145 segundos
+Merge está ordenado: 1
+Quick está ordenado: 1
+----------------------------------------
+Arquivo: instancias-numericas/instancias-num/num.1000.2.in
+Tempo de MERGESORT: 0.000150 segundos
+Tempo de QUICKSORT: 0.000109 segundos
+Merge está ordenado: 1
+Quick está ordenado: 1
+----------------------------------------
+Arquivo: instancias-numericas/instancias-num/num.1000.3.in
+Tempo de MERGESORT: 0.000178 segundos
+Tempo de QUICKSORT: 0.000128 segundos
+Merge está ordenado: 1
+Quick está ordenado: 1
+----------------------------------------
+Arquivo: instancias-numericas/instancias-num/num.1000.4.in
+Tempo de MERGESORT: 0.000151 segundos
+Tempo de QUICKSORT: 0.000104 segundos
+Merge está ordenado: 1
+Quick está ordenado: 1
+----------------------------------------
