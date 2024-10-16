@@ -28,7 +28,6 @@ void printArray(int *arr, int n) {
 int main(int argv, char* argc[]) {
     int n = 0;
     int arr[MAX_NUMBERS];
-    char* sort = argc[1];
     char* file = argc[2];
     FILE* f = fopen(file, "r");
     while (fscanf(f, "%d", &arr[n]) != EOF) {
@@ -70,3 +69,10 @@ int main(int argv, char* argc[]) {
     free(numbers2);
     return 0;
 }
+
+/*
+    Esses resultados mostram que, para instâncias maiores (100.000 elementos), 
+    o MergeSort foi consistentemente mais rápido que o QuickSort. Já para instâncias 
+    menores (10.000 e 1.000 elementos), 
+    o QuickSort teve desempenho ligeiramente superior na maioria dos casos.
+*/
