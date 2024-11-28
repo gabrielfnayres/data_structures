@@ -1,2 +1,5 @@
 *.o
 .vscode
+*.txt
+*.in
+/home/fnayres/data_structures/sorts/instancias-numericas
